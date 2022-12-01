@@ -4,7 +4,6 @@ name: CI
       - uses: actions/checkout@v3
       
       # Build
-      
       - name: Percy Test
         run: npm run build 
         run: npx @percy/cli snapshot storybook-static/
