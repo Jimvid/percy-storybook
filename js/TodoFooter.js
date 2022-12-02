@@ -1,8 +1,8 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
 
 function pluralize(count, word) {
-  return count === 1 ? word : word + 's';
+  return count === 1 ? word : word + "s";
 }
 
 export default function TodoFooter({
@@ -10,23 +10,25 @@ export default function TodoFooter({
   completedCount,
   showTodos,
   onClearCompleted,
-  onShowTodos
+  onShowTodos,
 }) {
   return (
     <footer className="footer">
       <span className="todo-count">
         <strong>{activeCount}</strong>
-        {pluralize(activeCount, ' item')} left
+        {pluralize(activeCount, " item")} left
       </span>
 
       <ul className="filters">
-        {['all', 'active', 'completed'].map(filter => (
+        {["all", "active", "completed"].map((filter) => (
           <li key={filter}>
             <a
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => (onShowTodos(filter), false)}
-              className={classNames({ selected: showTodos === filter })}>
-              {filter[0].toUpperCase()}{filter.substring(1)}
+              className={classNames({ selected: showTodos === filter })}
+            >
+              {filter[0].toUpperCase()}
+              {filter.substring(1)}
             </a>
           </li>
         ))}
@@ -34,8 +36,10 @@ export default function TodoFooter({
 
       {completedCount > 0 ? (
         <button
+          style={{ fontWeight: "bold" }}
           className="clear-completed"
-          onClick={onClearCompleted}>
+          onClick={onClearCompleted}
+        >
           Clear completed
         </button>
       ) : null}
